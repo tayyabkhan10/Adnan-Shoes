@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getAuth, clerkClient } from "@clerk/express";
-import { db, ordersTable, orderItemsTable, cartItemsTable, productsTable } from "../db";
+import { db, ordersTable, orderItemsTable, cartItemsTable, productsTable } from "../db/index.js";
 import { eq, desc } from "drizzle-orm";
 import { z } from "zod";
 import { sendOrderConfirmation } from "../lib/mailer";
