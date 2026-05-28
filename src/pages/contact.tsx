@@ -8,22 +8,22 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Visit Us",
-    lines: ["12 Fashion Street, Gulberg III", "Lahore, Punjab, Pakistan"],
+    lines: ["Mumtazabad Market, Main Road", "Multan, Punjab, Pakistan"],
   },
   {
     icon: Phone,
     title: "Call Us",
-    lines: ["+92 300 1234567", "+92 42 35761234"],
+    lines: ["+92 303 6157070", "+92 318 1664079"],
   },
   {
     icon: Mail,
     title: "Email Us",
-    lines: ["support@adnanshoes.com", "orders@adnanshoes.com"],
+    lines: ["kashanrana004@gmail.com", "tk2926868@gmail.com"],
   },
   {
     icon: Clock,
     title: "Business Hours",
-    lines: ["Mon – Sat: 10am – 8pm", "Sunday: 12pm – 6pm"],
+    lines: ["Mon – Sat: 10am – 10pm", "Sunday: 11am – 11pm"],
   },
 ];
 
@@ -222,7 +222,7 @@ export default function Contact() {
       <section className="h-64 bg-muted border-t border-border flex items-center justify-center">
         <div className="text-center text-muted-foreground">
           <MapPin className="h-8 w-8 mx-auto mb-2 opacity-40" />
-          <p className="text-sm">12 Fashion Street, Gulberg III, Lahore, Pakistan</p>
+          <p className="text-sm">Mumtazabad market main road, Multan, Punjab, Pakistan</p>
         </div>
       </section>
     </div>

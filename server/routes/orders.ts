@@ -42,6 +42,7 @@ async function buildOrderResponse(orderId: number) {
     total: Number(order.total),
     shippingAddress: order.shippingAddress,
     customerPhone: order.customerPhone,
+    paymentMethod: order.paymentMethod,
     createdAt: order.createdAt.toISOString(),
     updatedAt: order.updatedAt.toISOString(),
   };
@@ -72,11 +73,11 @@ const ShippingAddress = z.object({
   country: z.string().min(2),
 });
 
-const CreateOrderBody = z.object({ shippingAddress: ShippingAddress ,  customerPhone: z.string().min(11), });
+const CreateOrderBody = z.object({ shippingAddress: ShippingAddress ,  customerPhone: z.string().min(11), paymentMethod: z.enum(['cod', 'online'])});
 
 router.post("/orders", requireAuth, async (req: any, res: any) => {
   try {
-    const { shippingAddress , customerPhone} = CreateOrderBody.parse(req.body);
+    const { shippingAddress , customerPhone ,  paymentMethod} = CreateOrderBody.parse(req.body);
     const userId = req.userId as string;
 
     const cartItems = await db
@@ -110,6 +111,7 @@ router.post("/orders", requireAuth, async (req: any, res: any) => {
         total: String(total.toFixed(2)),
         shippingAddress,
         customerPhone,
+        paymentMethod,
       })
       .returning();
 
@@ -142,7 +144,7 @@ router.post("/orders", requireAuth, async (req: any, res: any) => {
             productName: i.productName, quantity: i.quantity,
             price: Number(i.price), size: i.size, color: i.color,
           })),
-          subtotal, shippingCost, total, shippingAddress,
+          subtotal, shippingCost, total, shippingAddress, 
         }).catch((e) => console.warn("Email send failed:", e));
       }
     } catch (e) {

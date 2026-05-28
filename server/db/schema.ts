@@ -66,6 +66,7 @@ export const ordersTable = pgTable("orders", {
   total: numeric("total", { precision: 10, scale: 2 }).notNull(),
   
   shippingAddress: jsonb("shipping_address").notNull(),
+  paymentMethod: text("payment_method").notNull(), // 'cod' ya 'online'
   
   customerPhone: text("customer_phone"),
   

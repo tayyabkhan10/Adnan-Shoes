@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Instagram, Twitter, Facebook, Youtube } from "lucide-react";
+import { Instagram, Twitter, Facebook, Youtube ,  } from "lucide-react";
 
 export function Footer() {
   return (
@@ -16,7 +16,7 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               {[
-                { Icon: Instagram, href: "#" },
+                { Icon: Instagram, href: "https://www.instagram.com/softchappalofficial?igsh=aDhvcm9yd20yeDc%3D&utm_source=qr" },
                 { Icon: Twitter, href: "#" },
                 { Icon: Facebook, href: "#" },
                 { Icon: Youtube, href: "#" },
@@ -68,7 +68,10 @@ export function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-primary-foreground/50 gap-4">
-          <p>&copy; {new Date().getFullYear()} Adnan Shoes. All rights reserved.</p>
+        <div>
+           <p>&copy; {new Date().getFullYear()} Adnan Shoes. All rights reserved.</p><br/>
+          <p>Architected, Designed, and Programmed from scratch by Tayyab Khan | Full-Stack Developer</p>
+        </div>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

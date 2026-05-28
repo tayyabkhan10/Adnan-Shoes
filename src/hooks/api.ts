@@ -79,6 +79,7 @@ export type Order = {
   createdAt: string;
   updatedAt: string;
   customerPhone?: string | null; 
+  paymentMethod?: 'cod' | 'online';
 };
 
 export type DashboardStats = {
@@ -319,7 +320,7 @@ export function useClearCart(
 
 // ── Order Hooks ──────────────────────────────────────────────
 
-type CreateOrderData = { shippingAddress: ShippingAddress , customerPhone: string; };
+type CreateOrderData = { shippingAddress: ShippingAddress , customerPhone: string , paymentMethod?: 'cod' | 'online';};
 
 export function useCreateOrder(
   options?: UseMutationOptions<Order, Error, CreateOrderData>

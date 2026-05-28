@@ -1,3 +1,4 @@
+
 import { ReactNode } from "react";
 import { Link, useLocation } from "wouter";
 import { useClerk, useUser } from "@clerk/react";
@@ -27,8 +28,8 @@ export function AdminLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex min-h-screen bg-gray-50">
-      {/* Sidebar */}
-      <aside className="w-64 shrink-0 bg-white border-r border-gray-200 flex flex-col shadow-sm">
+      {/* Desktop Sidebar */}
+      <aside className="hidden md:flex w-64 shrink-0 bg-white border-r border-gray-200 flex-col shadow-sm">
         {/* Logo */}
         <div className="h-16 flex items-center px-6 border-b border-gray-100">
           <Link href="/" className="flex items-center gap-2">
@@ -81,7 +82,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
             <LogOut className="h-3.5 w-3.5" />
             Sign Out
           </Button>
-          <Link href="/shop">
+          <Link href="/">
             <div className="mt-1 px-2 py-1.5 text-xs text-gray-400 hover:text-gray-700 cursor-pointer flex items-center gap-1.5 rounded-md hover:bg-gray-50 transition-colors">
               <Store className="h-3.5 w-3.5" />
               Back to Store
@@ -90,10 +91,10 @@ export function AdminLayout({ children }: { children: ReactNode }) {
         </div>
       </aside>
 
-      {/* Main content */}
+      {/* Main Content Wrapper */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Top bar */}
-        <header className="h-16 bg-white border-b border-gray-200 flex items-center px-8 gap-4 sticky top-0 z-10 shadow-sm">
+        <header className="h-16 bg-white border-b border-gray-200 flex items-center px-4 md:px-8 gap-4 sticky top-0 z-10 shadow-sm">
           <div className="flex-1">
             <p className="text-sm text-gray-400">
               {navItems.find((n) => n.href === location)?.label ?? "Admin"}
@@ -106,10 +107,31 @@ export function AdminLayout({ children }: { children: ReactNode }) {
         </header>
 
         {/* Content */}
-        <main className="flex-1 p-8 overflow-auto">
+        <main className="flex-1 p-4 md:p-8 overflow-auto pb-20 md:pb-8">
           {children}
         </main>
       </div>
+
+      {/* Mobile Bottom Navigation */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around items-center h-16 z-50 pb-[env(safe-area-inset-bottom)]">
+        {navItems.map((item) => {
+          const active = location === item.href;
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`flex flex-col items-center justify-center flex-1 h-full transition-colors cursor-pointer ${
+                active ? "text-gray-900" : "text-gray-400 hover:text-gray-600"
+              }`}
+            >
+              <item.icon className={`h-5 w-5 ${active ? "text-gray-900" : "text-gray-400"}`} />
+              <span className={`text-[10px] mt-1 font-medium ${active ? "text-gray-900" : "text-gray-400"}`}>
+                {item.label}
+              </span>
+            </Link>
+          );
+        })}
+      </nav>
     </div>
   );
 }

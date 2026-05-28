@@ -27,28 +27,27 @@ const values = [
 
 const team = [
   {
-    name: "Adnan Malik",
+    name: "Rana Kashan",
     role: "Founder & CEO",
-    bio: "With over 15 years in the footwear industry, Adnan founded this brand with a clear mission: premium shoes for everyone.",
-    initials: "AM",
-  },
-  {
-    name: "Zara Sheikh",
-    role: "Head of Design",
-    bio: "A graduate of Parsons School of Design, Zara brings global perspective and bold creativity to every collection.",
-    initials: "ZS",
-  },
-  {
-    name: "Omar Farooq",
+    bio: "A undergraduate from University of central Punjab, Kashan brings global perspective and bold creativity to every collection.",
+    initials: "RK",
+  }, {
+    name: "Rana Javaid",
     role: "Head of Production",
-    bio: "Omar oversees our manufacturing partners across Pakistan and Italy, ensuring uncompromising quality at every step.",
-    initials: "OF",
+    bio: "With over 15 years in the footwear industry, Javaid founded this brand with a clear mission: premium shoes for everyone.",
+    initials: "RJ",
+  },
+  {
+    name: "Rana Adnan",
+    role: "Head of Design",
+    bio: "Adnan oversees our manufacturing partners across Pakistan and European Countries, ensuring uncompromising quality at every step.",
+    initials: "RA",
   },
 ];
 
 const milestones = [
-  { year: "2014", event: "Founded in Lahore, Pakistan with just 12 styles" },
-  { year: "2016", event: "Expanded to 3 flagship stores across major cities" },
+  { year: "2014", event: "Founded in Multan, Pakistan with just 12 styles" },
+  { year: "2016", event: "Expanded to 3 flagship stores across major shops" },
   { year: "2019", event: "Launched online — reached customers in 20+ countries" },
   { year: "2022", event: "Passed 10,000 pairs sold milestone" },
   { year: "2025", event: "500+ styles. Still crafted with the same passion." },
@@ -170,9 +169,30 @@ export default function About() {
                 <p className="text-primary-foreground/70 text-sm leading-relaxed">{member.bio}</p>
               </div>
             ))}
+            
           </div>
+            <section className="pt-14">
+        <div className="max-w-sm mx-auto px-4 text-center">
+          <Link
+            href="/developer"
+            className="inline-flex items-center justify-center gap-2 
+                 px-7 py-3 bg-white text-slate-800 font-medium text-[0.95rem]
+                 border border-slate-200 rounded-lg
+                 shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-[1px]
+                 active:translate-y-0 active:shadow-sm
+                 transition-all duration-200 ease-out
+                 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-2">
+            View Our Developer
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-0.5">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </section>
+        </div>
+      </section>
+    
 
       {/* CTA */}
       <section className="py-24 container mx-auto px-4 text-center">

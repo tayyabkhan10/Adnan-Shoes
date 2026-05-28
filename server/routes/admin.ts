@@ -33,6 +33,7 @@ async function buildOrderResponse(orderId: number) {
     total: Number(order.total),
     shippingAddress: order.shippingAddress,
     customerPhone: order.customerPhone,
+    paymentMethod: order.paymentMethod,
     createdAt: order.createdAt.toISOString(),
     updatedAt: order.updatedAt.toISOString(),
   };

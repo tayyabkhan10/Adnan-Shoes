@@ -9,7 +9,7 @@ import adminRouter from "./routes/admin";
 import contactRouter from "./routes/contact";
 import healthRouter from "./routes/health";
 import uploadRouter from "./routes/upload";
-
+import * as path from "path";
 const app = express();
 const PORT = Number(process.env.PORT) || 3001;
 
@@ -25,6 +25,14 @@ app.use("/api", ordersRouter);
 app.use("/api", adminRouter);
 app.use("/api", contactRouter);
 app.use("/api", uploadRouter);
+
+if (process.env.NODE_ENV === "production") {
+  const distPath = path.join(__dirname, "../../dist");
+  app.use(express.static(distPath));
+  app.get("*", (_req, res) => {
+    res.sendFile(path.join(distPath, "index.html"));
+  });
+}
 
 app.use(
   (

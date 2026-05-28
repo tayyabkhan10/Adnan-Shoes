@@ -22,6 +22,7 @@ import AdminProducts from "@/pages/admin/products";
 import AdminOrders from "@/pages/admin/orders";
 import AdminCustomers from "@/pages/admin/customers";
 import NotFound from "@/pages/not-found";
+import Developer from "./pages/developer";
 
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 if (!clerkPubKey) throw new Error("Missing VITE_CLERK_PUBLISHABLE_KEY in .env");
@@ -116,6 +117,7 @@ export default function App() {
               <Route path="/sign-up/*?" component={SignUpPage} />
               <Route path="/shop"><Layout><Shop /></Layout></Route>
               <Route path="/about"><Layout><About /></Layout></Route>
+              <Route path="/developer"><Layout><Developer /></Layout></Route>              
               <Route path="/contact"><Layout><Contact /></Layout></Route>
               <Route path="/product/:id"><Layout><ProductDetail /></Layout></Route>
               <Route path="/journal"><Layout><Journal /></Layout></Route>
