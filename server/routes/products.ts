@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getAuth } from "@clerk/express";
-import { db, productsTable } from "../db";
+import { db, productsTable } from "../db/index.js";
 import { eq, ilike, gte, lte, and, type SQL } from "drizzle-orm";
 import { z } from "zod";
 
