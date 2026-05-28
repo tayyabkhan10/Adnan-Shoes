@@ -10,6 +10,9 @@ import contactRouter from "./routes/contact";
 import healthRouter from "./routes/health";
 import uploadRouter from "./routes/upload";
 import * as path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const PORT = Number(process.env.PORT) || 3001;
 
